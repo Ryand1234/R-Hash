@@ -8,6 +8,8 @@ data = ''
 for ele in sys.argv[2:]:
 	data = data + ele + ' '
 
+data = data.strip(' ')
+
 def enc_data():
 	print("String to be encrypted is {0}".format(data))
 
@@ -25,7 +27,6 @@ def dec_data():
 	dec_str = ''
 	j = 0;
 	for i in data:
-		print("I: {0}".format(i))
 		dec_str = dec_str + binary.decrypt(i, j)
 		j = j + 1
 

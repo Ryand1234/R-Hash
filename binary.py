@@ -11,11 +11,10 @@ def encrypt(data, number):
 
 def decrypt(data, number):
 	prime_num = prime.get_prime(number)
-	print("Prime number is {0}".format(prime_num))
 
-	new_data = chr(ord(data) - prime_num) 
+	cur_data = ord(data) - prime_num
 
-	print("Dec data is {0}".format(new_data))
+	new_data = chr(cur_data%128) 
 
 	return new_data
 
