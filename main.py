@@ -1,16 +1,8 @@
 #!/usr/bin/env python3
 
-import sys
 import binary
 
-data = ''
-
-for ele in sys.argv[2:]:
-	data = data + ele + ' '
-
-data = data.strip(' ')
-
-def enc_data():
+def enc_data(data):
 	print("String to be encrypted is {0}".format(data))
 
 	enc_str = ''
@@ -21,7 +13,10 @@ def enc_data():
 
 	print("encrypted String is {0}".format(enc_str))
 
-def dec_data():
+
+
+
+def dec_data(data):
 	print("String to be decrypted is {0}".format(data))
 
 	dec_str = ''
@@ -32,18 +27,23 @@ def dec_data():
 
 	print("decrypted String is {0}".format(dec_str))
 
+
+
 def usage():
 	print("R-Hash Encrypter Decrypter")
 	print("Syntax: ")
-	print("	./main encrypt/decrypt <String to be encrypt or decrypt>");
+	print("	Only encrypt decrypt Operations are available");
 	exit(1)
 
 
 
 if __name__ == "__main__":
-	if(sys.argv[1] == "encrypt"):
-		enc_data();
-	elif (sys.argv[1] == "decrypt"):
-		dec_data();
+	operation = input("Type the Operation you want to use:(encrypt/decrypt) ?");
+	if(operation == "encrypt"):
+		data = input("Enter String to encrypt: ");
+		enc_data(data);
+	elif (operation == "decrypt"):
+		data = input("Enter String to decrypt: ");
+		dec_data(data);
 	else:
 		usage();
